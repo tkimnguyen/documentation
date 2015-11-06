@@ -613,3 +613,16 @@ portal.portal_languages.getDefaultLanguage()
 NEW
 language_tool = api.portal.get_tool('portal_languages')
 language_tool.getDefaultLanguage()
+
+
+On functional doctests:
+
+OLD
+browser_manager.getControl(name='form.widgets.IPublication.effective-year').value = '2015'
+browser_manager.getControl(name='form.widgets.IPublication.effective-month').value = ['10']
+browser_manager.getControl(name='form.widgets.IPublication.effective-day').value = '11'
+browser_manager.getControl(name='form.widgets.IPublication.effective-hour').value = '15'
+browser_manager.getControl(name='form.widgets.IPublication.effective-min').value = '14'
+
+NEW
+browser_manager.getControl(name='form.widgets.IPublication.effective').value = '2015-10-11 15:14'
