@@ -683,3 +683,26 @@ NEW
       <element>my.fancy.content.type</element>
     </value>
   </record>
+
+
+types_not_searched property moved to the registry:
+
+OLD
+<?xml version="1.0"?>
+<object name="portal_properties">
+  <object name="site_properties">
+    <property name="types_not_searched" purge="false">
+      <element value="freitag.util.fridge.fridge" />
+    </property>
+  </object>
+</object>
+
+NEW
+<?xml version="1.0"?>
+<registry>
+  <record name="plone.types_not_searched" interface="Products.CMFPlone.interfaces.controlpanel.ISearchSchema" field="types_not_searched">
+    <value>
+      <element>freitag.util.fridge.fridge</element>
+    </value>
+  </record>
+</registry>
