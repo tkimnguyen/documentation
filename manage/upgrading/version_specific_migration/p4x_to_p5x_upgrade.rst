@@ -602,3 +602,14 @@ Plone 5.x::
 
   >>> usergroups_settings.many_users
   False
+
+
+FIXME
+portal_languages has been moved to plone.i18n
+
+OLD
+portal.portal_languages.getDefaultLanguage()
+
+NEW
+language_tool = api.portal.get_tool('portal_languages')
+language_tool.getDefaultLanguage()
