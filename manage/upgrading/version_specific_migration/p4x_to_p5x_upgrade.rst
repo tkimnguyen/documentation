@@ -626,3 +626,25 @@ browser_manager.getControl(name='form.widgets.IPublication.effective-min').value
 
 NEW
 browser_manager.getControl(name='form.widgets.IPublication.effective').value = '2015-10-11 15:14'
+
+
+parentMetaTypesNotToQuery property moved to the registry:
+
+OLD
+<object name="portal_properties">
+  <object name="navtree_properties">
+    <property name="parentMetaTypesNotToQuery" purge="false">
+      <element value="my.hidden.content.type" />
+    </property>
+  </object>
+</object>
+
+NEW
+<?xml version="1.0"?>
+<registry>
+  <record name="plone.parent_types_not_to_query" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema" field="parent_types_not_to_query">
+    <value>
+      <element value="my.hidden.content.type" />
+    </value>
+  </record>
+</registry>
