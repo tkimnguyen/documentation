@@ -648,3 +648,18 @@ NEW
     </value>
   </record>
 </registry>
+
+
+metaTypesNotToList property moved to the registry:
+
+OLD
+<?xml version="1.0"?>
+<object name="portal_properties">
+  <object name="navtree_properties">
+    <property name="metaTypesNotToList" purge="false">
+      <element value="my.hidden.content.type" />
+    </property>
+</object>
+
+NEW
+*nothing* as the new setting is on Products.CMFPlone.interfaces.controlpanel.INavigationSchema.displayed_types and works the other way around. Instead of blacklisting it whitelists, so if you don't want your content type to show there's nothing to do.
