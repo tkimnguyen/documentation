@@ -663,3 +663,23 @@ OLD
 
 NEW
 *nothing* as the new setting is on Products.CMFPlone.interfaces.controlpanel.INavigationSchema.displayed_types and works the other way around. Instead of blacklisting it whitelists, so if you don't want your content type to show there's nothing to do.
+
+
+typesLinkToFolderContentsInFC property moved to the registry:
+
+OLD
+<?xml version="1.0"?>
+<object name="portal_properties">
+  <object name="site_properties">
+    <property name="typesLinkToFolderContentsInFC" purge="false">
+      <element value="my.fancy.content.type" />
+    </property>
+  </object>
+</object>
+
+NEW
+  <record name="plone.types_use_view_action_in_listings" interface="Products.CMFPlone.interfaces.controlpanel.ITypesSchema" field="types_use_view_action_in_listings">
+    <value>
+      <element>my.fancy.content.type</element>
+    </value>
+  </record>
